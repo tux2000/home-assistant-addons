@@ -16,4 +16,4 @@ jobs:
           --test \
           --all \
           --target paperless-ngx \
-          --docker-hub cyclickdevelopment
+          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }}
