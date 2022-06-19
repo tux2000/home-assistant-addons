@@ -1,6 +1,7 @@
 # Changelog
 
-## 1.6.0-1
+## 1.7.0-0
+- Upgrade to paperless-ngx v1.7.0
 - Expose functionality to install additional OCR languages
 
 ## 1.6.0-0
