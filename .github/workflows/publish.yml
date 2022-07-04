@@ -22,5 +22,4 @@ jobs:
         args: |
           --all \
           --target paperless-ngx \
-          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }} \
-          --no-cache
+          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }} 
