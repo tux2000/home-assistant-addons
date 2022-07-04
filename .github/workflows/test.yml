@@ -16,4 +16,5 @@ jobs:
           --test \
           --all \
           --target paperless-ngx \
-          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }}
+          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }} \
+          --no-cache
