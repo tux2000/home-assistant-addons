@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.1-0
+- Upgrade to paperless-ngx v1.7.1
+- Set empty string for NULL value in PAPERLESS_URL
+
 ## 1.7.0-0
 - Upgrade to paperless-ngx v1.7.0
 - Expose functionality to install additional OCR languages
