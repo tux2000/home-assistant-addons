@@ -1,6 +1,6 @@
 name: 'Test'
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -16,4 +16,4 @@ jobs:
           --test \
           --all \
           --target paperless-ngx \
-          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }}
+          --docker-hub ${{ secrets.DOCKERHUB_USERNAME }} 

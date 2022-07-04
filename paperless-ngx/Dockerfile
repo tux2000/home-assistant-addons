@@ -47,10 +47,10 @@ RUN apt-get update \
     zlib1g \
     && mkdir /var/log/supervisord /var/run/supervisord
 
-RUN wget -O paperless.tar.xz https://github.com/paperless-ngx/paperless-ngx/releases/download/ngx-1.7.0/paperless-ngx-1.7.0.tar.xz \
+RUN wget -O paperless.tar.xz https://github.com/paperless-ngx/paperless-ngx/releases/download/v1.7.1/paperless-ngx-v1.7.1.tar.xz \
     && 7z x paperless.tar.xz \
     && 7z x paperless.tar -o/usr/src/ \
-    && cd /usr/src 
+    && cd /usr/src
 
 # Fix aarch64 builds
 # see: https://github.com/pikepdf/pikepdf/issues/194#issuecomment-1020419586
@@ -83,7 +83,7 @@ RUN sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf
 # Clean Up
 RUN apt-get -y purge build-essential libqpdf-dev \
     && apt-get -y autoremove --purge \
-    && rm -rf /var/lib/apt/lists/* 
+    && rm -rf /var/lib/apt/lists/*
 
 # copy scripts
 # FROM ORIGINAL DOCKER FILE: this fixes issues with imagemagick and PDF
