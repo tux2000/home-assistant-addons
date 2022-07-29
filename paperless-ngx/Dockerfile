@@ -11,6 +11,7 @@ RUN apt-get update \
     file \
     fonts-liberation \
     gettext \
+    git \
     gosu \
     ghostscript \
     gnupg \
