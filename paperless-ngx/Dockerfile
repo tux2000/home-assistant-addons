@@ -1,6 +1,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
+ARG version=v1.8.0
+
 #Dependencies
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
@@ -47,7 +49,7 @@ RUN apt-get update \
     zlib1g \
     && mkdir /var/log/supervisord /var/run/supervisord
 
-RUN wget -O paperless.tar.xz https://github.com/paperless-ngx/paperless-ngx/releases/download/v1.7.1/paperless-ngx-v1.7.1.tar.xz \
+RUN wget -O paperless.tar.xz https://github.com/paperless-ngx/paperless-ngx/releases/download/$version/paperless-ngx-$version.tar.xz \
     && 7z x paperless.tar.xz \
     && 7z x paperless.tar -o/usr/src/ \
     && cd /usr/src
