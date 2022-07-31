@@ -82,9 +82,17 @@ RUN cp requirements.txt /usr/src/paperless/requirements.txt
 RUN cp -R ./src /usr/src/paperless/
 
 
+# Remove editable option in requirements file
+RUN sed -i "s/^\s*-e\s*//g" requirements.txt
+RUN cat requirements.txt
+
+
 # Install requirements
 RUN python3 -m pip install --upgrade pip supervisor setuptools \
-    && env QPDF_SOURCE_TREE=/qpdf python3 -m pip install --no-cache-dir -r requirements.txt
+    && python3 -m pip install --no-cache-dir -r requirements.txt
+
+# What did we get?
+RUN python3 -m pip list
 
 # Clean Up
 RUN apt-get -y purge build-essential libqpdf-dev \
