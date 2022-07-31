@@ -74,13 +74,13 @@ RUN cp requirements.txt /usr/src/paperless/requirements.txt
 # copy app
 RUN cp -R ./src /usr/src/paperless/
 
-# Install Django-Q from paperless-ngx org
-RUN python3 -m pip install git+https://github.com/paperless-ngx/django-q.git@paperless-main
-
 
 # Install requirements
 RUN python3 -m pip install --upgrade pip supervisor setuptools \
     && env QPDF_SOURCE_TREE=/qpdf python3 -m pip install --no-cache-dir -r requirements.txt
+
+# Install Django-Q from paperless-ngx org
+RUN python3 -m pip install git+https://github.com/paperless-ngx/django-q.git@paperless-main
 
 #### Redis Setup
 RUN apt-get install redis-server redis-tools -y
