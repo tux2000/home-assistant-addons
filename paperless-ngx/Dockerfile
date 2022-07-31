@@ -29,9 +29,12 @@ RUN apt-get update \
     libxml2-dev \
     libxslt1-dev \
     libzbar0 \
+    mime-support \
     optipng \
+    poppler-utils \
     p7zip-full \
     pngquant \
+    python3 \
     python3-pip \
     python3-dev \
     python3-scipy \
@@ -50,11 +53,6 @@ RUN apt-get update \
     zlib1g \
     && mkdir /var/log/supervisord /var/run/supervisord
 
-RUN wget -O paperless.tar.xz https://github.com/paperless-ngx/paperless-ngx/releases/download/$version/paperless-ngx-$version.tar.xz \
-    && 7z x paperless.tar.xz \
-    && 7z x paperless.tar -o/usr/src/ \
-    && cd /usr/src
-
 # Fix aarch64 builds
 # see: https://github.com/pikepdf/pikepdf/issues/194#issuecomment-1020419586
 RUN wget -O qpdf.tar.gz https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.6.3/qpdf-10.6.3.tar.gz \
@@ -64,6 +62,15 @@ RUN wget -O qpdf.tar.gz https://github.com/qpdf/qpdf/releases/download/release-q
     && cd /qpdf \
     && ./configure \
     && make
+
+#### Redis Setup
+RUN apt-get install redis-server redis-tools -y
+RUN sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf
+
+RUN wget -O paperless.tar.xz https://github.com/paperless-ngx/paperless-ngx/releases/download/$version/paperless-ngx-$version.tar.xz \
+    && 7z x paperless.tar.xz \
+    && 7z x paperless.tar -o/usr/src/ \
+    && cd /usr/src
 
 WORKDIR /usr/src/paperless-ngx/
 
@@ -78,13 +85,6 @@ RUN cp -R ./src /usr/src/paperless/
 # Install requirements
 RUN python3 -m pip install --upgrade pip supervisor setuptools \
     && env QPDF_SOURCE_TREE=/qpdf python3 -m pip install --no-cache-dir -r requirements.txt
-
-# Install Django-Q from paperless-ngx org
-RUN python3 -m pip install git+https://github.com/paperless-ngx/django-q.git@paperless-main
-
-#### Redis Setup
-RUN apt-get install redis-server redis-tools -y
-RUN sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf
 
 # Clean Up
 RUN apt-get -y purge build-essential libqpdf-dev \
