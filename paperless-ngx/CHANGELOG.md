@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.0-2
+- Attempt to get ingress working
+
 ## 1.8.0-1
 - Activate ingress feature
 
