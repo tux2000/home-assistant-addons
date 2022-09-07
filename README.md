@@ -15,6 +15,8 @@ https://github.com/tux2000/home-assistant-addons
 ## Add-ons provided by this repository
 
 ### [Paperless-ngx](paperless-ngx)
-### [ingress-proxy](ingress-proxy)
 
 [Docs](paperless-ngx/DOCS.md)
+
+
+### [ingress-proxy](ingress-proxy)
