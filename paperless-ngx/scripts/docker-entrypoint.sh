@@ -10,7 +10,9 @@ echo "Entry script"
 ./scripts/wait-for-redis.sh
 
 # Load config
-export PAPERLESS_URL=$(jq --raw-output ".url // ''" $CONFIG_PATH)
+export PAPERLESS_URL=$(jq --raw-output ".url" $CONFIG_PATH)
+export PAPERLESS_STATIC_URL=$(jq --raw-output ".staticurl" $CONFIG_PATH)
+export PAPERLESS_FORCE_SCRIPT_NAME==$(jq --raw-output ".scriptpath" $CONFIG_PATH)
 export PAPERLESS_FILENAME_FORMAT=$(jq --raw-output ".filename.format" $CONFIG_PATH)
 export PAPERLESS_OCR_LANGUAGE=$(jq --raw-output ".ocr.language" $CONFIG_PATH)
 export PAPERLESS_OCR_LANGUAGES=$(jq --raw-output ".ocr.languages" $CONFIG_PATH)
@@ -18,6 +20,8 @@ export PAPERLESS_OCR_LANGUAGES=$(jq --raw-output ".ocr.languages" $CONFIG_PATH)
 export DEFAULT_USERNAME=$(jq --raw-output ".default_superuser.username" $CONFIG_PATH)
 export DEFAULT_EMAIL=$(jq --raw-output ".default_superuser.email" $CONFIG_PATH)
 export DEFAULT_PASSWORD=$(jq --raw-output ".default_superuser.password" $CONFIG_PATH)
+
+export PAPERLESS_AUTO_LOGIN_USERNAME=$(jq --raw-output ".default_superuser.username" $CONFIG_PATH)
 
 # Change Paperless directories so that we can access the files
 export PAPERLESS_CONSUMPTION_DIR=/share/paperless/consume
