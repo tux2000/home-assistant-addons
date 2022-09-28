@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.1-0
+- Upgrade to paperless-ngx v1.9.1
+
+## 1.9.0-0
+- Upgrade to paperless-ngx v1.9.0
+
 ## 1.8.0-2
 - Attempt to get ingress working
 

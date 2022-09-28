@@ -1,13 +1,14 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-ARG version=v1.8.0
+ARG version=v1.9.1
 
 #Dependencies
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
     build-essential \
     curl \
+    default-libmysqlclient-dev \
     file \
     fonts-liberation \
     gettext \
@@ -20,6 +21,7 @@ RUN apt-get update \
     jq \
     libatlas-base-dev \
     libffi-dev \
+    libpq-dev \
     libssl-dev \
     liblept5 \
     libmagic-dev \
@@ -29,6 +31,7 @@ RUN apt-get update \
     libxml2-dev \
     libxslt1-dev \
     libzbar0 \
+    mariadb-client \
     mime-support \
     optipng \
     poppler-utils \
