@@ -6,10 +6,8 @@ FROM ${BUILD_FROM}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-# hadolint ignore=DL3003
 RUN \
-    apk add --no-cache \
-        nginx=1.22.0-r1
+    apk add --no-cache nginx
 
 # Copy root filesystem
 COPY rootfs /
