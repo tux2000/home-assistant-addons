@@ -4,7 +4,7 @@
 
 _Paperless is an application that manages your personal documents. With the help of a document scanner (see [Scanner recommendations](https://paperless-ngx.readthedocs.io/en/latest/scanners.html)), paperless transforms your wieldy physical document binders into a searchable archive and provides many utilities for finding and managing your documents._
 
-![Dashboard screenshot](https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/docs/_static/screenshots/documents-wchrome-dark.png)
+![Dashboard screenshot](https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/main/docs/assets/screenshots/documents-smallcards.png)
 
 Read more in the project's [Readme](https://github.com/paperless-ngx/paperless-ngx)
 
