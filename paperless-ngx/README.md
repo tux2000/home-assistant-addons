@@ -1,4 +1,4 @@
-# Paperless-ng Home Assistant Addon
+# Paperless-ngx Home Assistant Addon
 
 ## About
 
@@ -23,3 +23,7 @@ comparison to installing any other Home Assistant add-on.
 ## Documentation
 
 The documentation for this addon can be found [here](DOCS.md)
+
+## Origin
+
+This plugin was forked from https://github.com/TheBestMoshe/home-assistant-addons with the aim to keep the HA plugin more in sync with the paperless-ngx development.
