@@ -1,6 +1,6 @@
 ---
 name: Ingress proxy
-version: 0.2.3
+version: 0.2.4
 slug: ingress_proxy
 description: nginx reverse proxy to expose network resources through HA ingress
 webui: "[PROTO:ssl]://[HOST]:[PORT:80]"
