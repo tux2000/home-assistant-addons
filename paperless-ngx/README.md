@@ -1,6 +1,6 @@
 # Paperless-ngx Home Assistant Addon
 
-#NOTE: THERE IS NO ACTIVE DEVELOPMENT IN THIS REPO
+# NOTE: THERE IS NO ACTIVE DEVELOPMENT IN THIS REPO
 
 I changed my install of paperless-ngx from using this plugin to instead use a
 docker compose stack based on the official docker images by the [paperless-ngx team](https://docs.paperless-ngx.com/setup/#docker_hub) within the [portainer
